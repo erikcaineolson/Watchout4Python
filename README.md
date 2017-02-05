@@ -5,7 +5,7 @@ Returns a more complex version of a Watchout4Snakes random phrase (to programmat
 ## Goals
 After reading XKCD's password comic, I found [http://watchout4snakes.com/wo4snakes/](Watchout4Snakes) (W4S), and immediately loved it. I figured I'd like to automate the process for use in other applications. So, here we are!
 
-Also, I wanted to get a feel for some basic web scraping with Python.
+Also, I wanted to get a feel for some basic web scraping and string manipulation with Python.
 
 ## Requirements
 1. Python >= 3.6 (I honestly didn't test it on a lower version of Python)
