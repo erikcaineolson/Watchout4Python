@@ -40,20 +40,33 @@ def alpha_to_leet(character):
     return str(character)
 
 
-def get_phrase(iterations):
+def get_phrase(word_count):
     """
-    Retrieves a two-word phrase from the RandomPhrase page on the Watchout4Snakes website.
+    Retrieves a two-word phrase from the RandomPhrase page on the Watchout4Snakes website, and returns a phrase of the
+    appropriate word count with whitespaces removed.
 
-    :param int iterations:
+    :param int word_count:
     :return string:
     """
     phrase = ''
+
+    iterations = int(math.ceil(word_count / 2))
+    is_odd = False
+
+    if word_count % 2 == 1:
+        is_odd = True
 
     for i in range(iterations):
         driver = webdriver.Chrome()
         driver.get('http://watchout4snakes.com/wo4snakes/Random/RandomPhrase')
         two_words = driver.find_element_by_id('result').text
-        phrase = phrase + two_words
+
+        if is_odd and i == (word_count - 1):
+            one_word = two_words.split(' ')
+            phrase = phrase + one_word[0]
+        else:
+            phrase = phrase + two_words
+
         driver.close()
 
     return phrase.replace(" ", "")
@@ -119,9 +132,8 @@ def main(word_count=2, use_caps=False, use_leet=False, caps_percent=25, leet_per
     :param int leet_percent:
     :return void:
     """
-    iterations = int(math.ceil(word_count / 2))
 
-    phrase = get_phrase(iterations)
+    phrase = get_phrase(word_count)
 
     if use_caps:
         phrase = random_caps(phrase, caps_percent)
