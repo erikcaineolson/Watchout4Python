@@ -7,12 +7,21 @@ After reading XKCD's password comic, I found [http://watchout4snakes.com/wo4snak
 
 Also, I wanted to get a feel for some basic web scraping and string manipulation with Python.
 
+I've decided it's time to make this into a Windows executable...`kivy` to the rescue! I'll do more as time allows, but I find myself using this script often enough from Powershell that it's high time to do this.
+
 ## Requirements
 1. Python >= 3.6 (I honestly didn't test it on a lower version of Python...it might work)
 2. Selenium
 3. chromedriver
+4. Kivy
+5. PyInstaller 3.1+
 
-Run `pip install selenium` if you don't have this library yet.
+Run `pip install --upgrade selenium` if you don't have these libraries yet. On Windows, you will also need to run `pip install --upgrade pyinstaller`
+
+Installing Kivy...
+1. Update `pip` and `wheel`: `pip install --upgrade pip wheel setuptools`
+2. Install the dependencies: `pip install docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.angle kivy.deps.gstreamer`
+3. Install Kivy: `pip install cython kivy`
 
 You will need to get the appropriate `chromedriver` file for your system from [https://sites.google.com/a/chromium.org/chromedriver/](https://sites.google.com/a/chromium.org/chromedriver/).
 
